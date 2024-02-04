@@ -75,8 +75,8 @@ export default function Love({params: {names}}: {params: {names:string}}) {
                 </DialogTitle>
                 <DialogDescription><span className="capitalize">{boy}</span> will be notified of your descision</DialogDescription>
                 <p>
-                  <span className="capitalize">{boy}</span> says "in my heart there's a place
-                  For a special girl like you❤️"
+                  <span className="capitalize">{boy}</span> says "in my heart there is a place
+                  For a special girl like you"
                 </p>
               </DialogHeader>
               <div className="w-20 h-20 mx-auto">
@@ -99,7 +99,7 @@ export default function Love({params: {names}}: {params: {names:string}}) {
                 description: messages[index],
               })
             }}
-            className={`bg-green-800 p-4 border border-white rounded-xl text-white ${index > 2&&buttonSize[1]} ${index ==4&&buttonColor[1]} ${index ==5 &&buttonSate[1]}`}>no i won't
+            className={`bg-green-800 p-4 border border-white rounded-xl text-white ${index > 2&&buttonSize[1]} ${index ==4&&buttonColor[1]} ${index ==5 &&buttonSate[1]}`}>no i will not
           </button>
         </div>
       </div>

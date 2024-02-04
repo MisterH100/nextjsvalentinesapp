@@ -20,7 +20,7 @@ export default function Home() {
     <main className="bg-white text-red-600 min-h-screen p-10">
       <div className="w-full flex flex-col items-center">
         <h1 className="text-3xl mb-4">Happy Valentines Day</h1>
-        <p>I'm sending you a Valentine wish With hugs and kisses too</p>
+        <p>I am sending you a Valentine wish With hugs and kisses too</p>
       </div>
       <div className="w-full flex justify-center">
         <Image
@@ -33,7 +33,7 @@ export default function Home() {
       <div className="w-full flex flex-col items-center gap-4">
         <h3>Create Link</h3>
         <div className="flex flex-col">
-          <label htmlFor="girl">girl's name:</label>
+          <label htmlFor="girl">girl name:</label>
           <input
             onChange={(e)=>setGirl(e.target.value)}
             className="w-full md:w-[320px] border border-gray-500 p-2"
@@ -41,7 +41,7 @@ export default function Home() {
             placeholder="eg: lola"/>
         </div>
         <div className="flex flex-col">
-          <label htmlFor="boy">boy's name:</label>
+          <label htmlFor="boy">boy name:</label>
           <input 
             onChange={(e)=>setBoy(e.target.value)}
             className="w-full md:w-[320px] border border-gray-500 p-2"
