@@ -12,7 +12,7 @@ export default function Home() {
 
   useEffect(()=>{
     if(typeof window.location !== undefined){
-      setUrl(`${window.location.hostname}`)
+      setUrl(`${window.location.hostname}:${window.location.port}`)
     }
   },[])
 
@@ -57,7 +57,7 @@ export default function Home() {
             className="border border-gray-500 p-2 w-full md:w-[500px]"
             type="text" 
             id="link"
-            value={`https://${url}/${girl}-${boy}`}
+            value={`${url}/${girl}-${boy}`}
             disabled
           />
           <button 

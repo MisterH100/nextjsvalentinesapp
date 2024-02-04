@@ -12,6 +12,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+const axios = require('axios');
 
 
 
@@ -25,6 +26,7 @@ export default function Love({params: {names}}: {params: {names:string}}) {
   const buttonSize = [" w-[200px]"," w-[80px] h-[40px] text-xs py-0"]
   const buttonColor = ["w-[250px]","bg-yellow-800"]
   const buttonSate = [" w-[350px]","hidden"]
+
 
   return (
     <main className="w-full min-h-screen flex flex-col justify-center items-center p-4">
@@ -61,9 +63,15 @@ export default function Love({params: {names}}: {params: {names:string}}) {
             <DialogTrigger asChild>
               <button 
                 onClick={()=>{
-                  setTimeout(()=>{
-                      router.push("/")
-                  },20000)
+                  axios.post("https://misterh-api-server.onrender.com/api/valentines/new",{
+                    girl: girl,
+                    boy: boy
+                  }).then(()=> {
+                    console.log("sweet");
+                  })
+                  .catch((error: any)=> {
+                    console.log(error);
+                  })
                 }}
                 className={`bg-red-500 p-4 border border-white rounded-xl text-white ${index ==2 && "animate-bounce"} ${index > 2&&buttonSize[0]} ${index ==4&&buttonColor[0]} ${index ==5&&buttonSate[0]}`}>yes i will
               </button>
