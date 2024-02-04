@@ -12,7 +12,7 @@ export default function Home() {
 
   useEffect(()=>{
     if(typeof window.location !== undefined){
-      setUrl(`${window.location.hostname}:${window.location.port}`)
+      setUrl(`${window.location.protocol}//${window.location.hostname}:${window.location.port}`)
     }
   },[])
 
