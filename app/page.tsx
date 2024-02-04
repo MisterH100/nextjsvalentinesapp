@@ -33,7 +33,7 @@ export default function Home() {
       <div className="w-full flex flex-col items-center gap-4">
         <h3>Create Link</h3>
         <div className="flex flex-col">
-          <label htmlFor="girl">girl name:</label>
+          <label htmlFor="girl">girl's name:</label>
           <input
             onChange={(e)=>setGirl(e.target.value)}
             className="w-full md:w-[320px] border border-gray-500 p-2"
@@ -41,7 +41,7 @@ export default function Home() {
             placeholder="eg: lola"/>
         </div>
         <div className="flex flex-col">
-          <label htmlFor="boy">boy name:</label>
+          <label htmlFor="boy">boy's name:</label>
           <input 
             onChange={(e)=>setBoy(e.target.value)}
             className="w-full md:w-[320px] border border-gray-500 p-2"
