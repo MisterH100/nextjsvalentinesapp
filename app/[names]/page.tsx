@@ -3,6 +3,7 @@ import Image from "next/image"
 import { useToast } from "@/components/ui/use-toast"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import styles from "./bubble.module.css";
 import {
   Dialog,
   DialogContent,
@@ -20,17 +21,17 @@ export default function Love({params: {names}}: {params: {names:string}}) {
   const [index,setIndex] = useState(0);
   const {toast} = useToast();
   const router = useRouter();
-  const messages = ["You sure?,press the red one instead","I think you missed it,it's the left one","I made it bigger it will be easier to see","You must be color blind let's try different colors","Lets just remove the annoying button"]
-  const buttonSize = ["w-[200px]","w-[80px] h-[40px] text-small p-0"]
-  const buttonColor = ["bg-blue-800 w-[250px]","bg-yellow-800"]
-  const buttonSate = ["w-[350px]","hidden"]
+  const messages = ["You sure?,press the red button instead","I think you missed it,it's the one on the left","I made it bigger it will be easier to see","You can't tell the difference between right and left?","Lets just remove the annoying button"]
+  const buttonSize = [" w-[200px]"," w-[80px] h-[40px] text-xs py-0"]
+  const buttonColor = ["w-[250px]","bg-yellow-800"]
+  const buttonSate = [" w-[350px]","hidden"]
 
   return (
     <main className="w-full min-h-screen flex flex-col justify-center items-center p-4">
       <div>
-        <div className="relative w-full md:w-96 h-56 rounded-xl bg-white overflow-hidden shadow-2xl">
+        <div className="relative w-full h-56 rounded-xl bg-white overflow-hidden shadow-2xl">
           <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center p-2">
-            <h1 className="w-full text-center font-semibold text-xl truncate">To the beautiful <span className="capitalize girl_name">{girl}❤️</span><br/><span className="text-base capitalize">from {boy}</span></h1>
+            <h1 className="w-full text-center font-semibold text-xl truncate">To the beautiful <span className="capitalize girl_name text-rose-600">{girl}❤️</span><br/><span className="font-light text-base capitalize">from {boy}</span></h1>
           </div>
           <Image
             className="w-full h-full object-cover"
@@ -43,8 +44,8 @@ export default function Love({params: {names}}: {params: {names:string}}) {
         </div>
         <div className="pt-4">
           <h2 className="">Its the month of love,here is a poem</h2>
-          <h3 className="text-2xl md:text-3xl font-medium">Be my Valentine forever.</h3>
-          <p className="pt-2" title="Poem Belinda Galea">
+          <BubbleText text="Be my Valentine forever."/>
+          <p className="pt-2" title="Poem By Belinda Galea">
             I love you for a lifetime,<br/>
             Not only for a day.<br/>
             I love you for who you are,<br/>
@@ -55,7 +56,7 @@ export default function Love({params: {names}}: {params: {names:string}}) {
             So will you be my Valentine, not only for one day?<br/>
           </p>
         </div>
-        <div className="flex justify-between items-center gap-10 pt-10">
+        <div className={`flex ${index ==4&&"flex-row-reverse"} justify-between items-center gap-10 pt-10`}>
           <Dialog>
             <DialogTrigger asChild>
               <button 
@@ -78,6 +79,16 @@ export default function Love({params: {names}}: {params: {names:string}}) {
                   For a special girl like you❤️"
                 </p>
               </DialogHeader>
+              <div className="w-20 h-20 mx-auto">
+                <Image
+                  className="w-full h-full object-cover"
+                  src="/happydance.gif"
+                  alt="hearts"
+                  width={100}
+                  height={100}
+                  priority
+                />
+              </div>
             </DialogContent>
           </Dialog>
           <button 
@@ -88,7 +99,7 @@ export default function Love({params: {names}}: {params: {names:string}}) {
                 description: messages[index],
               })
             }}
-            className={`bg-green-600 p-4 border border-white rounded-xl text-white ${index > 2&&buttonSize[1]} ${index ==4&&buttonColor[1]} ${index ==5 &&buttonSate[1]}`}>no i won't
+            className={`bg-green-800 p-4 border border-white rounded-xl text-white ${index > 2&&buttonSize[1]} ${index ==4&&buttonColor[1]} ${index ==5 &&buttonSate[1]}`}>no i won't
           </button>
         </div>
       </div>
@@ -96,3 +107,15 @@ export default function Love({params: {names}}: {params: {names:string}}) {
     </main> 
   );
 }
+
+const BubbleText = ({text}:{text:string}) => {
+  return (
+    <h3 className="text-3xl font-thin text-rose-600 cursor-pointer">
+      {text.split("").map((child, idx) => (
+        <span className={styles.hoverText} key={idx}>
+          {child}
+        </span>
+      ))}
+    </h3>
+  );
+};
